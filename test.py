@@ -1,4 +1,6 @@
+from pydoc import importfile
 from flask import *
+import mod
 
 # создание экземпляра класса Фласк; устанавливает папку хранения шаблонов (./my_templates)
 app = Flask(__name__, template_folder='my_templates')
@@ -74,6 +76,8 @@ def response_json():
 
 @app.route('/error')
 def error():
+    print(url_for("transfer", ))
+
     print('called error()')
     # формирование ответа через кортеж ("строка ответа", код ответа, {словарь с заголовками})
     return ('<h2>Error 500</h2>', 500, {'Content-Type':'text/html', 'Server':'dimkinServak'})
@@ -101,6 +105,7 @@ def transfer():
     # без добавления "http://" перенаправляет по указанному роуту с указанным кодом
     return redirect(location='/main', code=302)
     return ("", 302, {'location':'/main'})
+
 
 
 

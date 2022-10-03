@@ -30,10 +30,5 @@ def calc(a,b):
     return a+b
 print(Template("{{ var }}").render(var=calc(3,7)) + "\n")
 
-f=open('./my_templates/test_template.txt')
-text=f.read()
-
-templ=Template(text)
-print(templ.render())
 
 
